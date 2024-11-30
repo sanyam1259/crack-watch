@@ -1,0 +1,72 @@
+{% extends 'main.html'%}
+{% load static %}
+{% block header%}
+    
+    <link rel="stylesheet" href="{% static 'homepage/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     
+{% endblock header%}
+{% block content%}
+
+<section>
+</section>
+<section>
+    <div class="games">
+        {% for game in games %}
+        <a href="{% url 'gamepage' game.id %}">
+        <img src="{{game.header_image}}"  >
+            <div style="height: 70 px ;width: 180px; display: flex;margin: 30px ;border-color: white; border-style: dashed; color: white;padding:5px 5px 5px 5px;">
+                <h1>{{game.name}}</h1>
+                <p>{{game.id}}</p>
+                
+
+
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+
+<section>
+    <div class="container">
+    <div. class="row">
+      <table class="table">
+       <thead>
+       <tr>
+      
+      <th scope="col">id</th>
+      <th scope="col">name</th>
+      <th scope="col">Age Required</th>
+      <th scope="col"> Free  </th>
+      <th scope="col"> Controller Support</th>
+      <th scope="col"> Mini-Description </th>
+       </tr>
+       </thead>
+     <tbody>
+      <tr>
+      {% for data in data %}
+      <td>{{data.id}}</td>
+      <td>{{data.name}}</td>
+      <td>{{data.required_age}}</td>
+      <td>{{data.is_free}}</td>
+      <td>{{data.controller_suppoprt}}</td>
+      <td>{{data.short_description}}</td>
+      </tr>
+     {% endfor %}
+     
+      
+     </tbody>
+     </table>
+</div>
+</div>
+</section><br>
+<section>
+    {% include 'homepage/homePageSlider.html' %}
+</section>
+
+        
+
+
+{% endblock content %}
